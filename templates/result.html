@@ -1,0 +1,13 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body align="center">
+<h1>Price is {{ result }}</h1><br>
+<form action="back" method="get">
+    {% csrf_token %}
+    <input type="submit" value="BACK">
+</form>
+</body>
+</html>
