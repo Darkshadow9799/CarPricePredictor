@@ -32,8 +32,12 @@ The model accuracy is: 88%.
 In this step, I build the Django Framework and Ionic Framework for building the fully featured site.
 
 ## Technology:
+### Frameworks:
 * **Django Framework**
 * **Ionic Framework**
+### Languages:
+* **Python**
+* **Javascript**
 
 ## Huge Thanks:
 * Parth Mistry: https://github.com/m-prth
