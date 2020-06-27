@@ -2,23 +2,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
 </head>
 <body align="center">
 <form action="predictor" method="POST">
     {% csrf_token %}
-    <input type="number" placeholder="milage" name="milage"/><br>
-    <input type="number" placeholder="year" name="year"/><br>
-    <select name="model">
-        {% for i in model %}
-        <option value="{{ i }}">{{ i }}</option>
-        {% endfor %}
-    </select><br>
-    <select name="fuel">
-        {% for i in fuel %}
-        <option value="{{ i }}">{{ i }}</option>
-        {% endfor %}
-    </select>
-    <input type="submit" value="Submit">
+    <ion-grid>
+        <ion-row class="ion-align-items-center" class="ion-justify-content-center">
+            <ion-col size-md="6" offset-md="3">
+                <ion-card>
+                    <ion-card-header>
+                        <p>Car Price Predictor</p>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <ion-item class="ion-margin">
+                            <ion-label position="floating" >Milage</ion-label>
+                            <ion-input type="number" name="milage"></ion-input>
+                        </ion-item>
+                        <ion-item class="ion-margin">
+                            <ion-label position="floating" >year</ion-label>
+                            <ion-input type="number" name="year"></ion-input>
+                        </ion-item>
+                        <ion-item class="ion-margin">
+                            <ion-label>Model</ion-label>
+                            <ion-select name="model">
+                                {% for i in model %}
+                                <ion-select-option value="{{ i }}" >{{ i }}</ion-select-option>
+                                {% endfor %}
+                            </ion-select>
+                        </ion-item>
+                        <ion-item class="ion-margin">
+                            <ion-label>Fuel Type</ion-label>
+                            <ion-select name="fuel">
+                                {% for i in fuel %}
+                                <ion-select-option value="{{ i }}" >{{ i }}</ion-select-option>
+                                {% endfor %}
+                            </ion-select>
+                        </ion-item>
+                        <ion-item>
+                            <ion-button type="submit" color="primary">Submit</ion-button>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>
+                                <p>Result is : ₹{{ result }}</p>
+                            </ion-label>
+                        </ion-item>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </form>
 </body>
 </html>

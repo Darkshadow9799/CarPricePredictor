@@ -5,6 +5,7 @@ import pandas as pd
 dummy_csv=list(pd.read_csv('car_pred/dummy_cvs.csv'))
 model_t = dummy_csv[2:-4]
 fuel_t = dummy_csv[-4:]
+result=0
 def predictor(request):
     if request.method=="POST":
         milage=int(request.POST['milage'])
@@ -27,16 +28,15 @@ def predictor(request):
         final_input=[]
         final_input.append(input_val)
         reg=pickle.load(open('car_pred/model_lin_reg.sav','rb'))
-        result=reg.predict(final_input)
-        return render(request,'result.html',{'result':result,})
+        result_t=reg.predict(final_input)
+        result_t[0]='%.2f' % result_t[0]
+        return render(request,'home.html',{
+            'model':model_t,
+            'fuel':fuel_t,
+            'result':result_t[0],})
     else:
         return render(request,'home.html',{
             'model':model_t,
             'fuel':fuel_t,
+            'result': result,
         })
-
-def back(request):
-    return render(request, 'home.html', {
-        'model': model_t,
-        'fuel': fuel_t,
-    })
