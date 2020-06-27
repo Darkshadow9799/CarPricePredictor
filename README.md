@@ -1,4 +1,4 @@
-# CarPredictor
+# Car Price Predictor
 > Made by Aayush Jain
 * Created a tool that helps people to know the resale value of the car based on KMs, year in which it was bought, model of car and fuel type.
 * Scrapped data using python library beautiful soup.
