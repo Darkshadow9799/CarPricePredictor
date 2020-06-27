@@ -40,5 +40,5 @@ In this step, I build the Django Framework and Ionic Framework for building the 
 * **Javascript**
 
 ## Huge Thanks:
-* Parth Mistry: https://github.com/m-prth
 * Sagar Patel: https://github.com/codesagar
+* Parth Mistry: https://github.com/m-prth
